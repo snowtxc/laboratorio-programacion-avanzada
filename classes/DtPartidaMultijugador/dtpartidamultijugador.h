@@ -9,12 +9,12 @@ class DtPartidaMultijugador : public DtPartida {
       string * nicknameJugadoresUnidos;
       int cantidadJugadoresUnidos;
     public:
+      DtPartidaMultijugador();
       bool getTransmitidoEnVivo();
       string * getNicknameJugadoresUnidos();
       int getCantidadJugadoresUnidos();
       void setTransmitidoEnVivo(bool);
       void setNicknameJugadoresUnidos(string *);
       void setCantidadJugadoresUnidos(int);
-      DtPartidaMultijugador();
       float darTotalHorasParticipantes();
 };

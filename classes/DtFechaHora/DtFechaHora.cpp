@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "DtFechaHora.h";
+#include "DtFechaHora.h"
 
 using namespace std;
 

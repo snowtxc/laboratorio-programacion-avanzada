@@ -1,9 +1,9 @@
 #include<iostream>
-#include "dtpartida.h";
+#include "dtpartida.h"
 
 using namespace std;
 
-int DtPartida::getFecha() {
+DtFechaHora DtPartida::getFecha() {
     return this->fecha;
 }
 
@@ -11,7 +11,7 @@ float DtPartida::getDuracion() {
     return this->duracion;
 }
 
-void DtPartida::setFecha(int val) {
+void DtPartida::setFecha(DtFechaHora val) {
    this->fecha = val;
 }
 

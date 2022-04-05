@@ -1,13 +1,14 @@
 #include<iostream>
+#include "../DtFechaHora/DtFechaHora.h"
 
 class DtPartida {
     private:
-      int fecha;
+      DtFechaHora fecha;
       float duracion;
     public:
-      int getFecha();
+      DtFechaHora getFecha();
       float getDuracion();
-      void setFecha(int);
+      void setFecha(DtFechaHora);
       void setDuracion(float);
       virtual float darTotalHorasParticipantes() = 0;
 };
