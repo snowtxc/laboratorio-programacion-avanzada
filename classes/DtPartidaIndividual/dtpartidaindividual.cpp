@@ -13,6 +13,8 @@ void DtPartidaIndividual::setContinuaPartidaAnterior(bool continua){
     this->continuaPartidaAnterior = continua;
 }
 
+/*
 float DtPartidaIndividual::darTotalHorasParticipantes(){
     return 0;
 }
+*/

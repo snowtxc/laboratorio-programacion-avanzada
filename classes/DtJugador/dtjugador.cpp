@@ -17,7 +17,7 @@ int dtJugador::getEdad(){
 }
 
 string dtJugador::getPass(){
-    return this->pass;
+    return this->password;
 }
 
 void dtJugador::setNickname(string a){
@@ -28,6 +28,6 @@ void dtJugador::setEdad(int b){
     this->edad = b;
 }
 
-void dtJugador::setPass(string c){
-    this->pass = c;
+void dtJugador::setPassword(string c){
+    this->password = c;
 }

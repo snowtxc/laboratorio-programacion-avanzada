@@ -9,5 +9,5 @@ class DtPartidaIndividual : public DtPartida{
         DtPartidaIndividual(bool);
         bool getContinuaPartidaAnterior();
         void setContinuaPartidaAnterior(bool);
-        float darTotalHorasParticipantes();
+        //float darTotalHorasParticipantes();
 };
