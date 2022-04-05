@@ -1,7 +1,6 @@
 #include <iostream>
+#include "ETipojuego.h"
 using namespace std;
-
-enum TipoJuego {Accion, Aventura, Deporte, Otro};
 
 class DtVideojuego {
     private:
