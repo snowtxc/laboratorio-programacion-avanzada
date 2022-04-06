@@ -25,3 +25,23 @@ void DtVideojuego::setGenero(TipoJuego uGenero) {
 void DtVideojuego::setTotalHorasDeJuego(float uHoras) {
     this->TotalHorasDeJuego = uHoras;
 }
+
+DtVideojuego** obtenerVideojuegos(int& cantVideojuegos){
+    //contar videojuego y almacenarlos en cantVideojuegos
+    
+    DtVideojuego** videojuegos[MAX_VIDEOJUEGOS];
+
+    arr[0] = v1;
+    arr[1] = v2;
+    arr[2] = v3;
+    arr[3] = v4;
+    arr[4] = v5;
+    arr[5] = v6;
+    arr[6] = v7;
+    arr[7] = v8;
+    arr[8] = v9;
+    arr[9] = v10;
+    
+    cantVideojuegos = 2394;
+    return cantVideojuegos;
+}
