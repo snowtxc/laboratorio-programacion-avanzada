@@ -2,14 +2,14 @@
 #include "ETipojuego.h"
 using namespace std;
 
-class DtVideojuego {
+class Videojuego {
     private:
         string titulo;
         TipoJuego genero;
-        float TotalHorasDeJuego;
     public:
-        DtVideojuego(string, TipoJuego, float);
+        Videojuego(string, TipoJuego);
         string getTitulo();
         TipoJuego getGenero();
-        float getTotalHorasDeJuego();
+        void setTitulo(string);
+        void setGenero(TipoJuego);
 };
