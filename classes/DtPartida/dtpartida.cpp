@@ -3,7 +3,13 @@
 
 using namespace std;
 
-DtFechaHora DtPartida::getFecha() {
+
+DtPartida::DtPartida(DtFechaHora * fechaHora,int duracion){
+    this->fecha = fechaHora;
+    this->duracion = duracion;
+}
+
+DtFechaHora * DtPartida::getFecha() {
     return this->fecha;
 }
 
@@ -11,7 +17,7 @@ float DtPartida::getDuracion() {
     return this->duracion;
 }
 
-void DtPartida::setFecha(DtFechaHora val) {
+void DtPartida::setFecha(DtFechaHora * val) {
    this->fecha = val;
 }
 

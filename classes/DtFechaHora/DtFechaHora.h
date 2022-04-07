@@ -1,5 +1,7 @@
+#ifndef DTFECHAHORA_HEADER
+#define DTFECHAHORA_HEADER
 
-
+#include<iostream>
 
 class DtFechaHora{
     private:
@@ -21,3 +23,5 @@ class DtFechaHora{
       int getMinute();
       void setMinute(int);
 };
+
+#endif
