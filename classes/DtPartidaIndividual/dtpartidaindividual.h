@@ -13,7 +13,7 @@ class DtPartidaIndividual : public DtPartida{
         DtPartidaIndividual(bool, DtFechaHora * fecha,int duracion);
         bool getContinuaPartidaAnterior();
         void setContinuaPartidaAnterior(bool);
-        //float darTotalHorasParticipantes();
+        float darTotalHorasParticipantes();
 };
 
 #endif
