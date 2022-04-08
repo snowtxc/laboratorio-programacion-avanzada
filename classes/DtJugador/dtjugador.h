@@ -1,3 +1,6 @@
+#ifndef DTJUGADOR_HEADER
+#define DTJUGADOR_HEADER
+
 #include <iostream>
 using namespace std;
 
@@ -7,6 +10,7 @@ private:
     int edad;
     string password;
 public:
+    dtJugador();
     dtJugador(string, int, string);
     string getNickname();
     int getEdad();
@@ -15,3 +19,5 @@ public:
     void setEdad(int);
     void setPassword(string);
 };
+
+#endif

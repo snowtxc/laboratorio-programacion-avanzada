@@ -1,5 +1,8 @@
+#ifndef DTVIDEOJUEGO_HEADER
+#define DTVIDEOJUEGO_HEADER
+
 #include <iostream>
-#include "ETipojuego.h"
+#include "../Enum/ETipojuego.h"
 using namespace std;
 
 class DtVideojuego {

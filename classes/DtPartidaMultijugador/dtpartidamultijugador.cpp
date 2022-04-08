@@ -1,14 +1,24 @@
 #include<iostream>
 #include "dtpartidamultijugador.h"
+#include "../DtPartida/dtpartida.h"
 
 using namespace std;
 
 
-int MAX_JUGADORES = 100;
+int MAX_JUGADORES_POR_PARTIDA = 100;
 
-DtPartidaMultijugador::DtPartidaMultijugador() {
-    this->nicknameJugadoresUnidos = new string[MAX_JUGADORES];
-}
+DtPartidaMultijugador::DtPartidaMultijugador(bool enVivo,DtFechaHora * fechaHora, int duracion):DtPartida(fechaHora, duracion) {
+    this->nicknameJugadoresUnidos = new string[MAX_JUGADORES_POR_PARTIDA];
+    this->cantidadJugadoresUnidos = 0;
+    this->transmitidoEnVivo = enVivo;
+};
+
+void DtPartidaMultijugador::agregarJugadorAPartida(string nickname) {
+    if(this->cantidadJugadoresUnidos > MAX_JUGADORES_POR_PARTIDA){
+        throw invalid_argument("Esta partida esta llena");
+    }
+    this->nicknameJugadoresUnidos[this->cantidadJugadoresUnidos++] = nickname;
+};
 
 void DtPartidaMultijugador::setTransmitidoEnVivo(bool val) {
     this->transmitidoEnVivo = val;
