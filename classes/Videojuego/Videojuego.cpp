@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Videojuego.h"
+#include "DtVideojuego.h"
+
 using namespace std;
 
 
@@ -25,11 +27,16 @@ void Videojuego::setGenero(TipoJuego g){
     this->genero = g;
 }
 
-Videojuego** obtenerVideojuegos(int & cantVideojuegos){
-    Videojuego * tmp;
+dtVideojuego** Sistema::obtenerVideojuegos(int & cantVideojuegos){
     cantVideojuegos = this->cantV;
-    for (i = 0; i <= cantVideojuegos, i++){
-        res[i] = ...;
+    if (cantVideojuegos == 0) {
+        return NULL;
+    }
+    DtVideojuego** res = new DtVideojuego * [cantVideojuegos];
+
+
+    for (i = 0; i < cantVideojuegos, i++){
+        res[i] = mis_videojuegos[i]->darinfovideojuego();
     }
     return res;
 }
