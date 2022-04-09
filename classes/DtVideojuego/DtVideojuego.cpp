@@ -2,7 +2,6 @@
 #include "DtVideojuego.h"
 using namespace std;
 
-
 DtVideojuego::DtVideojuego(string t, TipoJuego g, float thj) {
     this->titulo = t;
     this->genero = g;
