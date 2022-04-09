@@ -27,16 +27,3 @@ void Videojuego::setGenero(TipoJuego g){
     this->genero = g;
 }
 
-dtVideojuego** Sistema::obtenerVideojuegos(int & cantVideojuegos){
-    cantVideojuegos = this->cantV;
-    if (cantVideojuegos == 0) {
-        return NULL;
-    }
-    DtVideojuego** res = new DtVideojuego * [cantVideojuegos];
-
-
-    for (i = 0; i < cantVideojuegos, i++){
-        res[i] = mis_videojuegos[i]->darinfovideojuego();
-    }
-    return res;
-}
