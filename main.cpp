@@ -1,6 +1,6 @@
 #include<iostream>
-#include "./classes/DtFechaHora/DtFechaHora.cpp"
-#include "./classes/Sistema/sistema.cpp"
+#include "./dataTypes/DtFechaHora/DtFechaHora.cpp"
+#include "./dataTypes/Sistema/sistema.cpp"
 
 using namespace std;
 

@@ -2,7 +2,7 @@
 #define DTVIDEOJUEGO_HEADER
 
 #include <iostream>
-#include "../Enum/ETipojuego.h"
+#include "../../Enum/ETipojuego.h"
 
 using namespace std;
 
