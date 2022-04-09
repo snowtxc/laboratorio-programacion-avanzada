@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../Enum/ETipojuego.h"
+
 using namespace std;
 
 class DtVideojuego {
@@ -16,3 +17,5 @@ class DtVideojuego {
         TipoJuego getGenero();
         float getTotalHorasDeJuego();
 };
+
+#endif
