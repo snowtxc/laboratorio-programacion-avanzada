@@ -11,15 +11,8 @@ class DtVideojuego {
         TipoJuego genero;
         float TotalHorasDeJuego;
     public:
-        DtVideojuego(string, TipoJuego);
+        DtVideojuego(string, TipoJuego, float);
         string getTitulo();
         TipoJuego getGenero();
         float getTotalHorasDeJuego();
-        void setTitulo(string);
-        void setGenero(TipoJuego);
-        void setTotalHorasDeJuego(float);
 };
-
-#endif
-
-

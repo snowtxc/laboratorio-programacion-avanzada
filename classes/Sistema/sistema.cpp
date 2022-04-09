@@ -16,13 +16,13 @@ class Sistema {
       int cantJugadores;
     public:
         Sistema();
+        DtVideojuego** obtenerVideojuegos(int &);
         void agregarJugador(string, int, string);
         void imprimirJugadores();
         dtJugador ** obtenerJugadores(int&);
         void agregarVideoJuego(string, TipoJuego);
         int getCantVideoJuegos();
         void imprimirVideoJuegos();
-
 };
 
 int Sistema::getCantVideoJuegos() {
@@ -34,6 +34,26 @@ Sistema::Sistema() {
     this->jugadores = new dtJugador * [MAX_JUGADORES];
     this->cantJugadores = 0;
     this->cantVideoJuegos = 0;
+};
+
+DtVideojuego** Sistema::obtenerVideojuegos(int & cantVideojuegos){
+    cantVideojuegos = this->cantVideoJuegos;
+    if (cantVideojuegos == 0) {
+        return NULL;
+    }
+    DtVideojuego** res = new DtVideojuego * [cantVideojuegos];
+
+
+    for (int i = 0; i < cantVideojuegos; i++){
+        string nombre = videoJuegos[i]->getTitulo();
+        TipoJuego genero = videoJuegos[i]->getGenero();
+        float hora = 1;
+
+        DtVideojuego *videojuego = new DtVideojuego(nombre, genero, hora);
+
+        res[i] = videojuego; //->darinfo()
+    }
+    return res;
 }
 
 void Sistema::agregarJugador(string nickname, int edad, string password){
@@ -80,7 +100,7 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
 }
 
 void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
-  DtVideojuego * juego = new DtVideojuego(nombre, genero);
+  DtVideojuego * juego = new DtVideojuego(nombre, genero, 1.0);
   if(MAX_VIDEOJUEGOS < this->getCantVideoJuegos()) {
     throw invalid_argument("No se pueden agregar mas jugadores");
   };
