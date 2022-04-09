@@ -9,7 +9,7 @@ private:
     string nickname;
     int edad;
 public:
-    dtJugador(string, int, string);
+    dtJugador(string, int);
     string getNickname();
     int getEdad();
 };
