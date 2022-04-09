@@ -1,6 +1,6 @@
 #include<iostream>
-#include "../DtVideojuego/DtVideojuego.h"
-#include "../DtJugador/dtjugador.h"
+#include "../DtVideojuego/DtVideojuego.cpp"
+#include "../DtJugador/dtjugador.cpp"
 
 using namespace std;
 
@@ -18,11 +18,22 @@ class Sistema {
         Sistema();
         void agregarJugador(string, int, string);
         void imprimirJugadores();
+        dtJugador ** obtenerJugadores(int&);
+        void agregarVideoJuego(string, TipoJuego);
+        int getCantVideoJuegos();
+        void imprimirVideoJuegos();
+
+};
+
+int Sistema::getCantVideoJuegos() {
+  return this->cantVideoJuegos;
 };
 
 Sistema::Sistema() {
     this->videoJuegos = new DtVideojuego * [MAX_VIDEOJUEGOS];
     this->jugadores = new dtJugador * [MAX_JUGADORES];
+    this->cantJugadores = 0;
+    this->cantVideoJuegos = 0;
 };
 
 void Sistema::agregarJugador(string nickname, int edad, string password){
@@ -49,4 +60,39 @@ void Sistema::imprimirJugadores(){
         cout << "  Jugador " << i + 1 << ": " << jugadores[i]->getNickname() << " " << jugadores[i]->getEdad() << " " << jugadores[i]->getPass() << endl; 
     }
     cout << "-----------------------------" << endl;
+}
+
+dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
+{
+  cantJugadores = this->cantJugadores;
+  dtJugador **jugadoresCopy = new dtJugador *[MAX_JUGADORES];
+  for (int i = 0; i < cantJugadores ; i++)
+  {
+    string nickname = jugadores[i]->getNickname();
+    int edad = jugadores[i]->getEdad();
+    string password = jugadores[i]->getPass();
+
+    dtJugador *jugador = new dtJugador(nickname, edad, password);
+
+    jugadoresCopy[i] = jugador;
+  }
+  return jugadoresCopy;
+}
+
+void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
+  DtVideojuego * juego = new DtVideojuego(nombre, genero);
+  if(MAX_VIDEOJUEGOS < this->getCantVideoJuegos()) {
+    throw invalid_argument("No se pueden agregar mas jugadores");
+  };
+  this->videoJuegos[this->cantVideoJuegos++] = juego;
+};
+
+void Sistema::imprimirVideoJuegos() {
+  for (int i = 0; i < this->cantVideoJuegos; i++)
+  {
+    DtVideojuego * juego = this->videoJuegos[i];
+    cout << endl;
+    cout << "Nombre Juego: " << juego->getTitulo() << endl; 
+    cout << "Genero Juego: " << "Test" << endl;
+  }
 }
