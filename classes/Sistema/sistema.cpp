@@ -27,14 +27,14 @@ class Sistema {
 
 int Sistema::getCantVideoJuegos() {
   return this->cantVideoJuegos;
-};
+}
 
 Sistema::Sistema() {
     this->videoJuegos = new DtVideojuego * [MAX_VIDEOJUEGOS];
     this->jugadores = new dtJugador * [MAX_JUGADORES];
     this->cantJugadores = 0;
     this->cantVideoJuegos = 0;
-};
+}
 
 void Sistema::agregarJugador(string nickname, int edad, string password){
   if (cantJugadores < MAX_JUGADORES){
@@ -85,7 +85,7 @@ void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
     throw invalid_argument("No se pueden agregar mas jugadores");
   };
   this->videoJuegos[this->cantVideoJuegos++] = juego;
-};
+}
 
 void Sistema::imprimirVideoJuegos() {
   for (int i = 0; i < this->cantVideoJuegos; i++)
