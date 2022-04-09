@@ -8,6 +8,13 @@ dtJugador::dtJugador(string nick, int anios, string passwd){
     this->password = passwd;
 }
 
+dtJugador::dtJugador(){
+    this->nickname = "";
+    this->edad = NULL;
+    this->password = "";
+}
+
+
 string dtJugador::getNickname(){
     return this->nickname;
 }

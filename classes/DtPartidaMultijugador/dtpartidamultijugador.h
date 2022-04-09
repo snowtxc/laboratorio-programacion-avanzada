@@ -1,6 +1,9 @@
-#include "../DtPartida/dtpartida.h"
-#include<string>
 
+#ifndef DTPARTIDAMULTIJUGADOR_HEADER
+#define DTPARTIDAMULTIJUGADOR_HEADER
+
+#include<string>
+#include "../DtPartida/dtpartida.h"
 using std::string;
 
 class DtPartidaMultijugador : public DtPartida {
@@ -9,7 +12,7 @@ class DtPartidaMultijugador : public DtPartida {
       string * nicknameJugadoresUnidos;
       int cantidadJugadoresUnidos;
     public:
-      DtPartidaMultijugador();
+      DtPartidaMultijugador(bool,DtFechaHora *, int);
       bool getTransmitidoEnVivo();
       string * getNicknameJugadoresUnidos();
       int getCantidadJugadoresUnidos();
@@ -17,4 +20,7 @@ class DtPartidaMultijugador : public DtPartida {
       void setNicknameJugadoresUnidos(string *);
       void setCantidadJugadoresUnidos(int);
       float darTotalHorasParticipantes();
+      void agregarJugadorAPartida(string);
 };
+
+#endif
