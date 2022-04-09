@@ -1,6 +1,6 @@
 #include<iostream>
 #include "../DtVideojuego/DtVideojuego.cpp"
-#include "../DtJugador/dtjugador.h"
+#include "../DtJugador/dtjugador.cpp"
 
 using namespace std;
 
@@ -30,6 +30,8 @@ int Sistema::getCantVideoJuegos() {
 Sistema::Sistema() {
     this->videoJuegos = new DtVideojuego * [MAX_VIDEOJUEGOS];
     this->jugadores = new dtJugador * [MAX_JUGADORES];
+    this->cantJugadores = 0;
+    this->cantVideoJuegos = 0;
 };
 
 dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
@@ -48,10 +50,6 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
   }
   return jugadoresCopy;
 }
-    this->cantJugadores = 0;
-    this->cantVideoJuegos = 0;
-};
-
 
 void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
   DtVideojuego * juego = new DtVideojuego(nombre, genero);
