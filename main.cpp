@@ -4,11 +4,8 @@
 
 using namespace std;
 
-
-
 int main(){
     Sistema * sist = new Sistema();
 
     return 0;
-   
 };
