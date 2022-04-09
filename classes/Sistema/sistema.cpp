@@ -1,20 +1,8 @@
 #include<iostream>
-#include "../DtVideojuego/DtVideojuego.h"
+#include "../DtVideojuego/DtVideojuego.cpp"
 #include "../DtJugador/dtjugador.h"
 
 using namespace std;
-
-/*
-
-
-// Array global de Jugadores.
-dtJugador **arrJugadores = new dtJugador *[MAX_JUGADORES];
-int cant_jugadores = 0;
-
-
-
-
-*/
 
 int MAX_JUGADORES = 20;
 int MAX_VIDEOJUEGOS= 20;
@@ -29,6 +17,14 @@ class Sistema {
     public:
         Sistema();
         dtJugador ** obtenerJugadores(int&);
+        void agregarVideoJuego(string, TipoJuego);
+        int getCantVideoJuegos();
+        void imprimirVideoJuegos();
+
+};
+
+int Sistema::getCantVideoJuegos() {
+  return this->cantVideoJuegos;
 };
 
 Sistema::Sistema() {
@@ -51,4 +47,26 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
     jugadoresCopy[i] = jugador;
   }
   return jugadoresCopy;
+}
+    this->cantJugadores = 0;
+    this->cantVideoJuegos = 0;
+};
+
+
+void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
+  DtVideojuego * juego = new DtVideojuego(nombre, genero);
+  if(MAX_VIDEOJUEGOS < this->getCantVideoJuegos()) {
+    throw invalid_argument("No se pueden agregar mas jugadores");
+  };
+  this->videoJuegos[this->cantVideoJuegos++] = juego;
+};
+
+void Sistema::imprimirVideoJuegos() {
+  for (int i = 0; i < this->cantVideoJuegos; i++)
+  {
+    DtVideojuego * juego = this->videoJuegos[i];
+    cout << endl;
+    cout << "Nombre Juego: " << juego->getTitulo() << endl; 
+    cout << "Genero Juego: " << "Test" << endl;
+  }
 }
