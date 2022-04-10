@@ -1,6 +1,7 @@
 #include<iostream>
 //#include "../DtVideojuego/DtVideojuego.cpp"
 #include "../DtJugador/dtjugador.cpp"
+#include "../../Classes/Jugador/Jugador.cpp"
 #include "../../classes/Videojuego/Videojuego.cpp"
 
 using namespace std;
@@ -13,7 +14,7 @@ class Sistema {
     private:
       Videojuego ** videoJuegos;
       int cantVideoJuegos;
-      dtJugador ** jugadores;
+      Jugador ** jugadores;
       int cantJugadores;
     public:
         Sistema();
@@ -32,10 +33,11 @@ int Sistema::getCantVideoJuegos() {
 
 Sistema::Sistema() {
     this->videoJuegos = new Videojuego * [MAX_VIDEOJUEGOS];
-    this->jugadores = new dtJugador * [MAX_JUGADORES];
+    this->jugadores = new Jugador * [MAX_JUGADORES];
     this->cantJugadores = 0;
     this->cantVideoJuegos = 0;
 };
+
 
 DtVideojuego** Sistema::obtenerVideojuegos(int & cantVideojuegos){
     cantVideojuegos = this->cantVideoJuegos;
@@ -58,7 +60,8 @@ DtVideojuego** Sistema::obtenerVideojuegos(int & cantVideojuegos){
     return res;
 }
 
-void Sistema::agregarJugador(string nickname, int edad, string password){
+
+void Sistema::agregarJugador(string nickname, int edad, string pass){
   if (cantJugadores < MAX_JUGADORES){
     // Validacion rango de edad
     if (edad <= 5 || edad > 110){ 
@@ -69,7 +72,7 @@ void Sistema::agregarJugador(string nickname, int edad, string password){
       if (jugadores[i]->getNickname() == nickname)
         throw std::invalid_argument("ERROR: Ya existe un jugador con ese Nickname.");
     }
-    dtJugador * nuevoJ = new dtJugador(nickname, edad, password);
+    Jugador * nuevoJ = new Jugador(nickname, edad, pass);
     jugadores[cantJugadores++] = nuevoJ;
   }else{ // El array está lleno, no se puede cargar otro player.
       return;
@@ -100,6 +103,7 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
   }
   return jugadoresCopy;
 }
+
 
 void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
   Videojuego * juego = new Videojuego(nombre, genero);
