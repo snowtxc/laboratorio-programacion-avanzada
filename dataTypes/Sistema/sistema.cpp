@@ -1,6 +1,8 @@
 #include<iostream>
 #include "../DtVideojuego/DtVideojuego.cpp"
 #include "../DtJugador/dtjugador.cpp"
+#include "../Videojuego/Videojuego.h"
+#include "../Enum/Etipojuego.h"
 
 using namespace std;
 
@@ -10,7 +12,7 @@ int MAX_PARTIDAS = 20;
 
 class Sistema {
     private:
-      DtVideojuego ** videoJuegos;
+      Videojuego ** videoJuegos;
       int cantVideoJuegos;
       dtJugador ** jugadores;
       int cantJugadores;
@@ -30,7 +32,7 @@ int Sistema::getCantVideoJuegos() {
 }
 
 Sistema::Sistema() {
-    this->videoJuegos = new DtVideojuego * [MAX_VIDEOJUEGOS];
+    this->videoJuegos = new Videojuego * [MAX_VIDEOJUEGOS];
     this->jugadores = new dtJugador * [MAX_JUGADORES];
     this->cantJugadores = 0;
     this->cantVideoJuegos = 0;
@@ -45,13 +47,14 @@ DtVideojuego** Sistema::obtenerVideojuegos(int & cantVideojuegos){
 
 
     for (int i = 0; i < cantVideojuegos; i++){
-        string nombre = videoJuegos[i]->getTitulo();
-        TipoJuego genero = videoJuegos[i]->getGenero();
-        float hora = 1;
+        //string nombre = videoJuegos[i]->getTitulo();
+        //TipoJuego genero = videoJuegos[i]->getGenero();
+        //float hora = 1;
 
-        DtVideojuego *videojuego = new DtVideojuego(nombre, genero, hora);
+        //DtVideojuego *videojuego = new DtVideojuego(nombre, genero, hora);
 
-        res[i] = videojuego; //->darinfo()
+        //res[i] = videojuego; //->darinfo()
+        res[i] = videoJuegos[i]->darInfo();
     }
     return res;
 }
@@ -102,15 +105,15 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
 void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
   DtVideojuego * juego = new DtVideojuego(nombre, genero, 1.0);
   if(MAX_VIDEOJUEGOS < this->getCantVideoJuegos()) {
-    throw invalid_argument("No se pueden agregar mas jugadores");
+    throw invalid_argument("No se pueden agregar mas videojuegos");
   };
-  this->videoJuegos[this->cantVideoJuegos++] = juego;
+  this->videoJuegos[this->cantVideoJuegos++] = juego ;
 }
 
 void Sistema::imprimirVideoJuegos() {
   for (int i = 0; i < this->cantVideoJuegos; i++)
   {
-    DtVideojuego * juego = this->videoJuegos[i];
+    DtVideojuego * juego = this->videoJuegos[i]->darInfo();
     cout << endl;
     cout << "Nombre Juego: " << juego->getTitulo() << endl; 
     cout << "Genero Juego: " << "Test" << endl;
