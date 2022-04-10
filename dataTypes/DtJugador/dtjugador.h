@@ -10,7 +10,6 @@ private:
     int edad;
     string password;
 public:
-    dtJugador();
     dtJugador(string, int, string);
     string getNickname();
     int getEdad();

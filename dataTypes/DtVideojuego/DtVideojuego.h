@@ -2,7 +2,8 @@
 #define DTVIDEOJUEGO_HEADER
 
 #include <iostream>
-#include "../Enum/ETipojuego.h"
+#include "../../Enum/ETipojuego.h"
+
 using namespace std;
 
 class DtVideojuego {
@@ -11,14 +12,10 @@ class DtVideojuego {
         TipoJuego genero;
         float TotalHorasDeJuego;
     public:
+        DtVideojuego(string, TipoJuego, float);
         string getTitulo();
         TipoJuego getGenero();
         float getTotalHorasDeJuego();
-        void setTitulo(string);
-        void setGenero(TipoJuego);
-        void setTotalHorasDeJuego(float);
 };
 
 #endif
-
-
