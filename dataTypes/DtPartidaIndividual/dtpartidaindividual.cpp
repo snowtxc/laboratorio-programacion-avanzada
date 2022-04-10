@@ -11,9 +11,6 @@ DtPartidaIndividual::DtPartidaIndividual(bool continua, DtFechaHora * fecha,int 
 bool DtPartidaIndividual::getContinuaPartidaAnterior(){
     return this->continuaPartidaAnterior;
 }
-void DtPartidaIndividual::setContinuaPartidaAnterior(bool continua){
-    this->continuaPartidaAnterior = continua;
-}
 
 float DtPartidaIndividual::darTotalHorasParticipantes(){
     return 0;
