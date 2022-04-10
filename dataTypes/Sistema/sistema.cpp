@@ -110,6 +110,10 @@ void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
   if(MAX_VIDEOJUEGOS < this->getCantVideoJuegos()) {
     throw invalid_argument("No se pueden agregar mas videojuegos");
   };
+  for (int i = 0; i < cantVideoJuegos; i++){
+      if (videoJuegos[i]->getTitulo() == nombre)
+        throw std::invalid_argument("ERROR: Ya existe un juego con ese Titulo.");
+  }
   this->videoJuegos[this->cantVideoJuegos++] = juego ;
 }
 

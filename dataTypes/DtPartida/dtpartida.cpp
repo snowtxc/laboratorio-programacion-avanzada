@@ -17,14 +17,6 @@ float DtPartida::getDuracion() {
     return this->duracion;
 }
 
-void DtPartida::setFecha(DtFechaHora * val) {
-   this->fecha = val;
-}
-
-void DtPartida::setDuracion(float val) {
-   this->duracion = val;
-}
-
 
 
 
