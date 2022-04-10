@@ -1,7 +1,7 @@
 #include<iostream>
 #include "../DtVideojuego/DtVideojuego.cpp"
 #include "../DtJugador/dtjugador.cpp"
-#include "../../classes/Jugador/Jugador.cpp"
+#include "../../Classes/Jugador/Jugador.cpp"
 
 using namespace std;
 
@@ -101,6 +101,7 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
   }
   return jugadoresCopy;
 }
+
 
 void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
   DtVideojuego * juego = new DtVideojuego(nombre, genero, 1.0);
