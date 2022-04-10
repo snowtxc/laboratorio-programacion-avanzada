@@ -1,5 +1,6 @@
 #include <iostream>
-#include "ETipojuego.h"
+#include "../../Enum/ETipojuego.h"
+#include "../../DataTypes/DtVideojuego/DtVideojuego.h"
 //#include "Partida.h"
 using namespace std;
 

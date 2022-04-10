@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Videojuego.h"
-#include "DtVideojuego.h"
+#include "../../DataTypes/DtVideojuego/DtVideojuego.cpp"
 
 using namespace std;
 
@@ -28,6 +28,7 @@ void Videojuego::setGenero(TipoJuego g){
 }
 
 DtVideojuego * Videojuego::darInfo(){
-    return new DtVideojuego(this->titulo, this->genero, /*funciontotalhorasjuego*/);
-}
+    DtVideojuego * P1 = new DtVideojuego(this->titulo, this->genero, 0.0);
+    return P1;
+}   
 

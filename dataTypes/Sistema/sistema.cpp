@@ -1,8 +1,7 @@
 #include<iostream>
-#include "../DtVideojuego/DtVideojuego.cpp"
+//#include "../DtVideojuego/DtVideojuego.cpp"
 #include "../DtJugador/dtjugador.cpp"
-#include "../Videojuego/Videojuego.h"
-#include "../Enum/Etipojuego.h"
+#include "../../classes/Videojuego/Videojuego.cpp"
 
 using namespace std;
 
@@ -103,7 +102,7 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
 }
 
 void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
-  DtVideojuego * juego = new DtVideojuego(nombre, genero, 1.0);
+  Videojuego * juego = new Videojuego(nombre, genero);
   if(MAX_VIDEOJUEGOS < this->getCantVideoJuegos()) {
     throw invalid_argument("No se pueden agregar mas videojuegos");
   };
