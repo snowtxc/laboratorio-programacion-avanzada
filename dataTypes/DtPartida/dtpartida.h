@@ -14,8 +14,6 @@ class DtPartida {
       DtPartida(DtFechaHora *,int);
       DtFechaHora * getFecha();
       float getDuracion();
-      void setFecha(DtFechaHora *);
-      void setDuracion(float);
       virtual float darTotalHorasParticipantes() = 0;
 };
 
