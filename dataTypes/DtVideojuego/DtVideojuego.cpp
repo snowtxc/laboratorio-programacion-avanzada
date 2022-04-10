@@ -1,5 +1,6 @@
 #include <iostream>
 #include "DtVideojuego.h"
+
 using namespace std;
 
 DtVideojuego::DtVideojuego(string t, TipoJuego g, float thj) {

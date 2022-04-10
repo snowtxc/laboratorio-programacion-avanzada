@@ -11,8 +11,7 @@ class DtPartidaIndividual : public DtPartida{
         bool continuaPartidaAnterior;
     public:
         DtPartidaIndividual(bool, DtFechaHora * fecha,int duracion);
-        bool getContinuaPartidaAnterior();
-        void setContinuaPartidaAnterior(bool);
+        bool getContinuaPartidaAnterior(); 
         float darTotalHorasParticipantes();
 };
 

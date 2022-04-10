@@ -16,11 +16,6 @@ class DtPartidaMultijugador : public DtPartida {
       bool getTransmitidoEnVivo();
       string * getNicknameJugadoresUnidos();
       int getCantidadJugadoresUnidos();
-      void setTransmitidoEnVivo(bool);
-      void setNicknameJugadoresUnidos(string *);
-      void setCantidadJugadoresUnidos(int);
-      float darTotalHorasParticipantes();
-      void agregarJugadorAPartida(string);
 };
 
 #endif

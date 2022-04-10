@@ -13,23 +13,6 @@ DtPartidaMultijugador::DtPartidaMultijugador(bool enVivo,DtFechaHora * fechaHora
     this->transmitidoEnVivo = enVivo;
 };
 
-void DtPartidaMultijugador::agregarJugadorAPartida(string nickname) {
-    if(this->cantidadJugadoresUnidos > MAX_JUGADORES_POR_PARTIDA){
-        throw invalid_argument("Esta partida esta llena");
-    }
-    this->nicknameJugadoresUnidos[this->cantidadJugadoresUnidos++] = nickname;
-};
-
-void DtPartidaMultijugador::setTransmitidoEnVivo(bool val) {
-    this->transmitidoEnVivo = val;
-};
-void DtPartidaMultijugador::setNicknameJugadoresUnidos(string * val) {
-    this->nicknameJugadoresUnidos = val;
-};
-void DtPartidaMultijugador::setCantidadJugadoresUnidos(int val) {
-    this->cantidadJugadoresUnidos = val;
-};
-
 bool DtPartidaMultijugador::getTransmitidoEnVivo() {
     return this->transmitidoEnVivo;
 };
@@ -40,6 +23,3 @@ int DtPartidaMultijugador::getCantidadJugadoresUnidos() {
     return this->cantidadJugadoresUnidos;
 };
 
-float DtPartidaMultijugador::darTotalHorasParticipantes() {
-    return 0.0;
-};
