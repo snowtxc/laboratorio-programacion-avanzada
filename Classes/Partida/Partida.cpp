@@ -24,7 +24,3 @@ void Partida::setFecha(DtFechaHora * val) {
 void Partida::setDuracion(float val) {
    this->duracion = val;
 }
-
-
-
-
