@@ -97,7 +97,7 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
     int edad = jugadores[i]->getEdad();
     string password = jugadores[i]->getPass();
 
-    dtJugador *jugador = new dtJugador(nickname, edad, password);
+    dtJugador *jugador = new dtJugador(nickname, edad);
 
     jugadoresCopy[i] = jugador;
   }
