@@ -7,5 +7,6 @@ class PartidaInvididual{          //Implementar herencia de clase partida cuando
         PartidaInvididual();
         float darTotalHorasParticipantes();
         bool getContinuarPartidaAnterior();
+        void setContinuarPartidaAnterior();
 };
 

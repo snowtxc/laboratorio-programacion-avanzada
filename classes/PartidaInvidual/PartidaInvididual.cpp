@@ -8,5 +8,12 @@ PartidaInvididual::PartidaInvididual(bool continuarPartidaAnterior){
 bool PartidaInvididual::getContinuarPartidaAnterior(){
     return this->continuarPartidaAnterior;
 }
-/*IMPLEMENTAR FUNCION Dar total Horas participantes */
+
+void PartidaInvididual::setContinuarPartidaAnterior(bool continuarPartidaAnterior){
+    this->continuarPartidaAnterior = continuarPartidaAnterior;
+}
+/*Queda por implementar FUNCION Dar total Horas participantes */
+float PartidaInvididual::darTotalHorasParticipantes(){
+    return 1;
+}
 
