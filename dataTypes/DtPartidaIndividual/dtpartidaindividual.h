@@ -10,9 +10,8 @@ class DtPartidaIndividual : public DtPartida{
     private:
         bool continuaPartidaAnterior;
     public:
-        DtPartidaIndividual(bool, DtFechaHora * fecha,int duracion);
+        DtPartidaIndividual(bool, DtFechaHora * fecha,float duracion);
         bool getContinuaPartidaAnterior(); 
-        float darTotalHorasParticipantes();
 };
 
 #endif

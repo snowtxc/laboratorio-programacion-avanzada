@@ -1,12 +1,21 @@
-#include "../dataTypes/DtFechaHora/DtFechaHora.cpp";
 
-class PartidaInvididual{          //Implementar herencia de clase partida cuando exista
+#ifndef PARTIDAINVIDIDUAL_HEADER
+#define PARTIDAINVIDIDUAL_HEADER
+
+#include "../../dataTypes/DtFechaHora/DtFechaHora.h"
+#include "../Partida/Partida.h"
+#include "../../dataTypes/DtPartidaIndividual/dtpartidaindividual.h"
+
+class PartidaInvididual: public Partida{          //Implementar herencia de clase partida cuando exista
     private:
         bool continuarPartidaAnterior;
     public:
-        PartidaInvididual();
-        float darTotalHorasParticipantes();
+        PartidaInvididual(bool,DtFechaHora * fecha, float);
         bool getContinuarPartidaAnterior();
-        void setContinuarPartidaAnterior();
+        void setContinuarPartidaAnterior(bool);
+        float darTotalHorasParticipantes();
+        DtPartida * darInfo();
+       
+    
 };
-
+#endif
