@@ -12,13 +12,13 @@ class Partida {
       float duracion;
     public:
       Partida();
-      Partida(DtFechaHora *,int);
+      Partida(DtFechaHora *,float);
       DtFechaHora * getFecha();
       float getDuracion();
       void setFecha(DtFechaHora *);
       void setDuracion(float);
       virtual float darTotalHorasParticipantes() = 0;
-      virtual DtPartida darInfo() = 0;
+      virtual DtPartida * darInfo() = 0;
 };
 
 #endif

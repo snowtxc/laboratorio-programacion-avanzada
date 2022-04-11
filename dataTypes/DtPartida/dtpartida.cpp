@@ -4,7 +4,7 @@
 using namespace std;
 
 
-DtPartida::DtPartida(DtFechaHora * fechaHora,int duracion){
+DtPartida::DtPartida(DtFechaHora * fechaHora,float duracion){
     this->fecha = fechaHora;
     this->duracion = duracion;
 }

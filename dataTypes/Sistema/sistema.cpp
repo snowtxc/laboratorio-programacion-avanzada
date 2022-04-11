@@ -1,8 +1,13 @@
 #include<iostream>
 //#include "../DtVideojuego/DtVideojuego.cpp"
-#include "../DtJugador/dtjugador.cpp"
 #include "../../Classes/Jugador/Jugador.cpp"
-#include "../../classes/Videojuego/Videojuego.cpp"
+#include "../../Classes/Videojuego/Videojuego.cpp"
+#include "../DtFechaHora/DtFechaHora.cpp"
+#include "../DtJugador/dtjugador.cpp"
+#include "../../Classes/Partida/Partida.cpp"
+
+#include "../../Classes/PartidaInvidual/PartidaInvididual.cpp"
+#include "../../Classes/PartidaMultijugador/PartidaMultijugador.cpp"
 
 using namespace std;
 

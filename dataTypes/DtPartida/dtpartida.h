@@ -11,10 +11,9 @@ class DtPartida {
       float duracion;
     public:
       DtPartida();
-      DtPartida(DtFechaHora *,int);
+      DtPartida(DtFechaHora *,float);
       DtFechaHora * getFecha();
       float getDuracion();
-      virtual float darTotalHorasParticipantes() = 0;
 };
 
 #endif
