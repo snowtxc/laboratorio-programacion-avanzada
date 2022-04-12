@@ -1,15 +1,19 @@
 #include "../Partida/Partida.h"
+#include "../Jugador/Jugador.h"
 #include "../../dataTypes/DtFechaHora/DtFechaHora.h"
 #include "../../dataTypes/DtPartidaMultijugador/dtpartidamultijugador.h"
 
 class PartidaMultijugador: public  Partida {
     private:
       bool transimitidaEnVivo;
-      //Implementar arrau pseudoatributo de Usuario
+      Jugador ** jugadores;
+      int max_jugadores = 20;
+      unsigned cant_jugadores;
     public:
        PartidaMultijugador(bool,DtFechaHora * ,float, Jugador *);
        bool getTransimitidaEnVivo();
        void setTransmitidaEnVivo(bool);
        float darTotalHorasParticipantes();
-        DtPartida *darInfo();
+       DtPartida *darInfo();
+       void agregarJugador(Jugador *);
 };
