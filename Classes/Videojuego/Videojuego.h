@@ -19,4 +19,6 @@ class Videojuego {
         void setGenero(TipoJuego);
         DtVideojuego * darInfo();
         void agregarPartida(Partida *);
+        Partida ** obtenerPartidas();
+        int getCantPartidas();
 };

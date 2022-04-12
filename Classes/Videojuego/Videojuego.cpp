@@ -42,3 +42,10 @@ void Videojuego::agregarPartida(Partida * partida) {
     this->partidas[this->cantPartidas++] = partida;
 }
 
+Partida ** Videojuego::obtenerPartidas(){
+    return this->partidas;
+}
+
+int Videojuego::getCantPartidas(){
+    return this->cantPartidas;
+}

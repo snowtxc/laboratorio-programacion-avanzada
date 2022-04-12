@@ -30,6 +30,7 @@ class Sistema {
         void agregarVideoJuego(string, TipoJuego);
         int getCantVideoJuegos();
         void imprimirVideoJuegos();
+        DtPartida** obtenerPartidas(string, int&);
 };
 
 int Sistema::getCantVideoJuegos() {
@@ -130,4 +131,27 @@ void Sistema::imprimirVideoJuegos() {
     cout << "Nombre Juego: " << juego->getTitulo() << endl; 
     cout << "Genero Juego: " << "Test" << endl;
   }
+}
+
+DtPartida** Sistema::obtenerPartidas(string videojuego, int& cantPartidas){
+  Videojuego * juego = NULL;
+  
+  for (int i = 0; i < this->cantVideoJuegos; i++){
+    if(videoJuegos[i]->getTitulo() == videojuego ){
+      juego = videoJuegos[i];
+      break;
+    }
+  }
+  if (juego == NULL){
+    throw invalid_argument("No existe ese videojuego.");
+  }
+
+  cantPartidas = juego->getCantPartidas();
+  DtPartida** res = new DtPartida * [cantPartidas];
+  Partida ** partidasDeJuego = juego->obtenerPartidas();
+
+  for(int x = 0; x < cantPartidas; x++){
+    res[x] = partidasDeJuego[x]->darInfo();
+  }
+  return res;
 }
