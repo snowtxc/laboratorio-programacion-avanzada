@@ -1,4 +1,3 @@
-
 #ifndef PARTIDA_HEADER
 #define PARTIDA_HEADER
 
@@ -10,9 +9,10 @@ class Partida {
     private:
       DtFechaHora * fecha;
       float duracion;
+      Jugador * creadorPartida = NULL;
     public:
       Partida();
-      Partida(DtFechaHora *,float);
+      Partida(DtFechaHora *,float, Jugador *);
       DtFechaHora * getFecha();
       float getDuracion();
       void setFecha(DtFechaHora *);
@@ -22,5 +22,3 @@ class Partida {
 };
 
 #endif
-
-

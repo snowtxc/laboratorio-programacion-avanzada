@@ -2,12 +2,12 @@
 #include "../../dataTypes/DtFechaHora/DtFechaHora.h"
 #include "../../dataTypes/DtPartidaMultijugador/dtpartidamultijugador.h"
 
-class PartidaMultijugador: public  Partida{
+class PartidaMultijugador: public  Partida {
     private:
       bool transimitidaEnVivo;
       //Implementar arrau pseudoatributo de Usuario
     public:
-       PartidaMultijugador(bool,DtFechaHora * ,float);
+       PartidaMultijugador(bool,DtFechaHora * ,float, Jugador *);
        bool getTransimitidaEnVivo();
        void setTransmitidaEnVivo(bool);
        float darTotalHorasParticipantes();

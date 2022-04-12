@@ -1,7 +1,7 @@
 #include "./PartidaMultijugador.h"
 #include "../../dataTypes/DtPartidaMultijugador/dtpartidamultijugador.cpp"
 
-PartidaMultijugador::PartidaMultijugador(bool transmitidaEnVivo,DtFechaHora * fecha, float duracion):Partida(fecha,duracion){
+PartidaMultijugador::PartidaMultijugador(bool transmitidaEnVivo,DtFechaHora * fecha, float duracion, Jugador * creadorPartida):Partida(fecha,duracion, creadorPartida){
     this->transimitidaEnVivo = transimitidaEnVivo;
 }
 

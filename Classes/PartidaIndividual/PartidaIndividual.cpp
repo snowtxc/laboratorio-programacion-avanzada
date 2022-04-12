@@ -1,25 +1,24 @@
-#include "./PartidaInvididual.h"
+#include "./PartidaIndividual.h"
 #include "../../dataTypes/DtPartidaIndividual/dtpartidaindividual.cpp"
 
 
-PartidaInvididual::PartidaInvididual(bool continuarPartidaAnterior,DtFechaHora * fecha, float duracion):Partida(fecha,duracion){
+PartidaIndividual::PartidaIndividual(bool continuarPartidaAnterior,DtFechaHora * fecha, float duracion, Jugador * creadorPartida):Partida(fecha,duracion, creadorPartida){
     this->continuarPartidaAnterior = continuarPartidaAnterior;
 }
 
-bool PartidaInvididual::getContinuarPartidaAnterior(){
+bool PartidaIndividual::getContinuarPartidaAnterior(){
     return this->continuarPartidaAnterior;
 }
 
-void PartidaInvididual::setContinuarPartidaAnterior(bool continuarPartidaAnterior){
+void PartidaIndividual::setContinuarPartidaAnterior(bool continuarPartidaAnterior){
     this->continuarPartidaAnterior = continuarPartidaAnterior;
 }
 /*Queda por implementar FUNCION Dar total Horas participantes */
-float PartidaInvididual::darTotalHorasParticipantes(){
+float PartidaIndividual::darTotalHorasParticipantes(){
     return 1;
 }
 
-DtPartida * PartidaInvididual::darInfo(){
+DtPartida * PartidaIndividual::darInfo(){
     DtPartida *res = new DtPartidaIndividual(this->continuarPartidaAnterior, this->getFecha(), this->getDuracion());
     return res;
 }
-

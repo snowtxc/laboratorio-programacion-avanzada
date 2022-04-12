@@ -6,7 +6,7 @@
 #include "../DtJugador/dtjugador.cpp"
 #include "../../Classes/Partida/Partida.cpp"
 
-#include "../../Classes/PartidaInvidual/PartidaInvididual.cpp"
+#include "../../Classes/PartidaIndividual/PartidaIndividual.cpp"
 #include "../../Classes/PartidaMultijugador/PartidaMultijugador.cpp"
 
 using namespace std;
