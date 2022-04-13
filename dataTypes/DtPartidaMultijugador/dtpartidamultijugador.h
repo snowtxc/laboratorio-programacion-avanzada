@@ -16,6 +16,8 @@ class DtPartidaMultijugador : public DtPartida {
       bool getTransmitidoEnVivo();
       string * getNicknameJugadoresUnidos();
       int getCantidadJugadoresUnidos();
+    protected:
+      virtual void printOn(std::ostream& o) const;
 };
 
 #endif

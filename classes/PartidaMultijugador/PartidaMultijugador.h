@@ -7,7 +7,7 @@ class PartidaMultijugador: public  Partida {
       bool transimitidaEnVivo;
       //Implementar arrau pseudoatributo de Usuario
     public:
-       PartidaMultijugador(bool,DtFechaHora * ,float, Jugador *);
+       PartidaMultijugador(bool,DtFechaHora * ,float);
        bool getTransimitidaEnVivo();
        void setTransmitidaEnVivo(bool);
        float darTotalHorasParticipantes();

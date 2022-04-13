@@ -31,6 +31,7 @@ class Sistema {
         int getCantVideoJuegos();
         void imprimirVideoJuegos();
         DtPartida** obtenerPartidas(string, int&);
+        void iniciarPartida(string, string, Partida *);
 };
 
 int Sistema::getCantVideoJuegos() {
@@ -154,4 +155,25 @@ DtPartida** Sistema::obtenerPartidas(string videojuego, int& cantPartidas){
     res[x] = partidasDeJuego[x]->darInfo();
   }
   return res;
+}
+
+
+void Sistema::iniciarPartida(string nickname, string videojuego, Partida * partida) {
+  Jugador * jugador = NULL;
+  Videojuego * juego = NULL;
+  for(int i = 0; i < this->cantJugadores; i++){
+    if(this->jugadores[i]->getNickname() == nickname){
+      jugador = jugadores[i];
+    }
+  };
+  for(int i = 0; i < this->cantVideoJuegos; i++){
+   if(this->videoJuegos[i]->getTitulo() == videojuego){
+     juego = videoJuegos[i];
+   }
+  };
+  if(juego == NULL || jugador == NULL){
+    throw invalid_argument("Error : Juego o jugador invalido al iniciar la partida");
+  }
+  partida->setJugador(jugador);
+  cout << "Sii";
 }

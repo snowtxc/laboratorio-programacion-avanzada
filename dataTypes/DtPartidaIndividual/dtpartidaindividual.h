@@ -11,7 +11,9 @@ class DtPartidaIndividual : public DtPartida{
         bool continuaPartidaAnterior;
     public:
         DtPartidaIndividual(bool, DtFechaHora * fecha,float duracion);
-        bool getContinuaPartidaAnterior(); 
+        bool getContinuaPartidaAnterior();
+    protected:
+        virtual void printOn(std::ostream& o) const;
 };
 
 #endif

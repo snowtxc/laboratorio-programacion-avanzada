@@ -16,7 +16,3 @@ DtFechaHora * DtPartida::getFecha() {
 float DtPartida::getDuracion() {
     return this->duracion;
 }
-
-
-
-
