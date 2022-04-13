@@ -1,11 +1,11 @@
 #include<iostream>
-#include "./dataTypes/Sistema/sistema.cpp"
+#include "./menu.cpp"
+#include <ctime>
 
 using namespace std;
 
+
 int main(){
-    Sistema * sist = new Sistema();
-    sist->agregarVideoJuego("Hola", Accion);
+    menu();
     return 0;
-   
 };
