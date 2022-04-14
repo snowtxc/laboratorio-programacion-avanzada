@@ -189,10 +189,21 @@ void obtenerVideojuegosMenu(){
     try{
         int cantV;
         DtVideojuego ** videojuegos = s->obtenerVideojuegos(cantV);  
+
+
         for (int i = 0; i < cantV; i++)
         {
+            string fromtatedGenero = "";
+            switch (videojuegos[i]->getGenero())
+            {
+            case Accion: fromtatedGenero = "Accion"; break;
+            case Aventura: fromtatedGenero = "Aventura";break;
+            case Deporte: fromtatedGenero = "Deporte";break;
+            case Otro:  fromtatedGenero = "Otro";break;
+            }
+
             cout << "Nombre Juego: " << videojuegos[i]->getTitulo() << endl; 
-            cout << "Genero Juego: " << videojuegos[i]->getGenero() << endl; // Usar switch
+            cout << "Genero Juego: " << fromtatedGenero << endl; // Usar switch
         }
         sleep(5);
     }catch(const std::exception& e){
@@ -270,9 +281,8 @@ bool menuMostrarSeguirAgregandoJugador(){
 }
 
 
-Jugador ** obtenerJugadoresAIniciarPartida(){
+Jugador ** obtenerJugadoresAIniciarPartida(int& cant){
     Jugador ** Jugadores = new Jugador * [MAX_JUGADORES];
-    int cant = 0;
     bool opcion = menuMostrarSeguirAgregandoJugador();
     while (opcion != false)
     {
@@ -356,12 +366,14 @@ void iniciarPartidaMenu(){
         continuar = menuIndividualNuevaoContinuar() == 1 ? true : false;
         nueva = new PartidaIndividual(continuar, ahora, duracion);
         s->iniciarPartida(nickCreador,videojuego, nueva);
-
-        }else{ // si eligió modo multijugador
+        }
+        else
+        { // si eligió modo multijugador
             bool enVivo;
             enVivo = menuMultijugadorTransmitidaOno(); // preguntamos si quiere transmitirla en vivo o no.
-            Jugador ** jugadoresEnEstaPartida = obtenerJugadoresAIniciarPartida();
-            nueva = new PartidaMultijugador(enVivo, ahora, duracion);
+            int cant_jugadores = 0;
+            Jugador ** jugadoresEnEstaPartida = obtenerJugadoresAIniciarPartida(cant_jugadores);
+            nueva = new PartidaMultijugador(enVivo, ahora, duracion,jugadoresEnEstaPartida, cant_jugadores);
             s->iniciarPartida(nickCreador,videojuego, nueva);
         }
         system("cls");
@@ -384,8 +396,7 @@ void obtenerPartidasMenu(){
         DtPartida ** partidas = s->obtenerPartidas(juego, cantP);  
         for (int i = 0; i < cantP; i++)
         {
-            cout << "Duracion: " << partidas[i]->getDuracion() << endl; 
-            cout << "Fecha de Creacion: " << partidas[i]->getFecha() << endl;
+            cout << *partidas[i];
         }
         sleep(5);
     }catch(const std::exception& e){

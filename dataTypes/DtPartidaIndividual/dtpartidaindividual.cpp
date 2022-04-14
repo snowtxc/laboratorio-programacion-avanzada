@@ -12,6 +12,10 @@ bool DtPartidaIndividual::getContinuaPartidaAnterior(){
     return this->continuaPartidaAnterior;
 }
 
+// DtPartidaIndividual DtPartidaIndividual::getClass(){
+//   DtPartidaIndividual p(this->continuaPartidaAnterior,this->getFecha(), this->getDuracion());
+//   return p;
+// }
 
 void DtPartidaIndividual::printOn(std::ostream& o) const
 {

@@ -14,6 +14,7 @@ class DtPartidaIndividual : public DtPartida{
         bool getContinuaPartidaAnterior();
     protected:
         virtual void printOn(std::ostream& o) const;
+        // virtual DtPartidaIndividual getClass();
 };
 
 #endif

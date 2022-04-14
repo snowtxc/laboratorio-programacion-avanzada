@@ -11,6 +11,7 @@ class PartidaMultijugador: public  Partida {
       unsigned cant_jugadores;
     public:
        PartidaMultijugador(bool,DtFechaHora * ,float);
+       PartidaMultijugador(bool,DtFechaHora * ,float, Jugador **, int);
        bool getTransimitidaEnVivo();
        void setTransmitidaEnVivo(bool);
        float darTotalHorasParticipantes();

@@ -18,6 +18,7 @@ class DtPartidaMultijugador : public DtPartida {
       int getCantidadJugadoresUnidos();
     protected:
       virtual void printOn(std::ostream& o) const;
+      // virtual DtPartidaMultijugador getClass();
 };
 
 #endif

@@ -1,4 +1,3 @@
-
 #ifndef DTPARTIDA_HEADER
 #define DTPARTIDA_HEADER
 
@@ -20,6 +19,7 @@ class DtPartida {
       virtual void printOn(std::ostream& o) const = 0;
       float duracion;
       DtFechaHora * fecha;
+      // virtual DtPartidaIndividual getClass() = 0;
 };
 
 #endif

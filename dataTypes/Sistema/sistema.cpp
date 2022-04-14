@@ -173,7 +173,7 @@ DtPartida** Sistema::obtenerPartidas(string videojuego, int& cantPartidas){
 }
 
 
-void Sistema::iniciarPartida(string nickname, string videojuego, Partida * partida) {
+void Sistema::iniciarPartida(string nickname, string videojuego, Partida * datos) {
   Jugador * jugador = NULL;
   Videojuego * juego = NULL;
   for(int i = 0; i < this->cantJugadores; i++){
@@ -186,11 +186,11 @@ void Sistema::iniciarPartida(string nickname, string videojuego, Partida * parti
      juego = videoJuegos[i];
    }
   };
+
   if(juego == NULL || jugador == NULL){
     throw invalid_argument("Error: Error : Juego o Jugador invalido al iniciar la partida");
-    sleep(3);
   }
   
-  partida->setJugador(jugador);
-  juego->agregarPartida(partida);
+  datos->setJugador(jugador);
+  juego->agregarPartida(datos);
 }

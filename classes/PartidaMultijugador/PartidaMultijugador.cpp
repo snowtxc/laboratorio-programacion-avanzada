@@ -7,6 +7,12 @@ PartidaMultijugador::PartidaMultijugador(bool transmitidaEnVivo,DtFechaHora * fe
     this->cant_jugadores = 0;
 }
 
+PartidaMultijugador::PartidaMultijugador(bool transmitidaEnVivo,DtFechaHora * fecha, float duracion, Jugador ** jugadores, int cant_jugadores):Partida(fecha,duracion){
+    this->transimitidaEnVivo = transimitidaEnVivo;
+    this->jugadores = jugadores;
+    this->cant_jugadores = cant_jugadores;
+}
+
 float PartidaMultijugador::darTotalHorasParticipantes(){
     return 1;   ///Queda por implementar
 }
