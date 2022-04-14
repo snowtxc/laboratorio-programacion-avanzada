@@ -191,7 +191,10 @@ void obtenerVideojuegosMenu(){
         int cantV;
         DtVideojuego ** videojuegos = s->obtenerVideojuegos(cantV);  
 
-
+        if (cantV == 0){
+            throw invalid_argument("No hay VideoJuegos registrados en el sistema.");
+        }
+        cout << "--------- VideoJuegos ---------" << endl;
         for (int i = 0; i < cantV; i++)
         {
             string fromtatedGenero = "";
@@ -205,9 +208,14 @@ void obtenerVideojuegosMenu(){
 
             cout << "Nombre Juego: " << videojuegos[i]->getTitulo() << endl; 
             cout << "Genero Juego: " << fromtatedGenero << endl; // Usar switch
-            cout << "Total Horas:" << videojuegos[i]->getTotalHorasDeJuego() << endl;
+            cout << "Total Horas: " << videojuegos[i]->getTotalHorasDeJuego() << endl;
+            cout << "-------------------------------" << endl;
         }
-        sleep(5);
+        
+        // sleep(5);
+        cout << endl;
+        cout << endl;
+        system("pause");
     }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
         sleep(2);
@@ -260,7 +268,9 @@ void obtenerJugadoresMenu(){
             << "    -Edad: " << jugadores[i]->getEdad() << endl;
         }
         cout << "-----------------------------" << endl;
-        sleep(6);
+        cout << endl;
+        cout << endl;
+        system("pause");
         }
     }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
@@ -425,7 +435,9 @@ void obtenerPartidasMenu(){
             cout << *partidas[i];
             cout << endl << "----------------------------" << endl;
         }
-        sleep(5);
+        cout << endl;
+        cout << endl;
+        system("pause");
     }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
         sleep(2);
