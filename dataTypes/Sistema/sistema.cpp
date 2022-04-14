@@ -89,7 +89,7 @@ void Sistema::agregarJugador(string nickname, int edad, string pass){
   if (cantJugadores < MAX_JUGADORES){
     // Validacion rango de edad
     if (edad <= 5 || edad > 110){ 
-        throw std::invalid_argument("ERROR: Edad inválida.");
+        throw std::invalid_argument("ERROR: Edad invalida.");
     }
     // Validar si el nickname ya está en el array.
     for (int i = 0; i < cantJugadores; i++){
@@ -132,7 +132,7 @@ dtJugador ** Sistema::obtenerJugadores(int& cantJugadores)
 void Sistema::agregarVideoJuego(string nombre , TipoJuego genero) {
   Videojuego * juego = new Videojuego(nombre, genero);
   if(MAX_VIDEOJUEGOS < this->getCantVideoJuegos()) {
-    throw invalid_argument("No se pueden agregar mas videojuegos");
+    throw invalid_argument("ERROR: No se pueden agregar mas videojuegos");
   };
   for (int i = 0; i < cantVideoJuegos; i++){
       if (videoJuegos[i]->getTitulo() == nombre)
@@ -161,7 +161,7 @@ DtPartida** Sistema::obtenerPartidas(string videojuego, int& cantPartidas){
     }
   }
   if (juego == NULL){
-    throw invalid_argument("No existe ese videojuego.");
+    throw invalid_argument("ERROR: No existe ese videojuego.");
   }
 
   cantPartidas = juego->getCantPartidas();
@@ -190,7 +190,7 @@ void Sistema::iniciarPartida(string nickname, string videojuego, Partida * datos
   };
 
   if(juego == NULL || jugador == NULL){
-    throw invalid_argument("Error: Error : Juego o Jugador invalido al iniciar la partida");
+    throw invalid_argument("ERROR: Juego o Jugador invalido al iniciar la partida");
   }
   
   datos->setJugador(jugador);

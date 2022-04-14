@@ -176,6 +176,7 @@ void agregarVideojuegoMenu(){
 
     try{
         s->agregarVideoJuego(nombreJuego, tipo);
+        system("cls");
         cout << "Videojuego " << "'" << nombreJuego << "'" << " insertado con EXITO." << endl;
         sleep(2);
     }catch(const std::exception& e){
@@ -234,7 +235,7 @@ void agregarJugadorMenu(){
 
     try{
         s->agregarJugador(nick, age, pass);
-        cout << "JUGADOR REGISTRADO CON EXITO"<< endl;
+        cout << "Jugador registrado con EXITO"<< endl;
         sleep(2);
     }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
@@ -245,15 +246,22 @@ void agregarJugadorMenu(){
 void obtenerJugadoresMenu(){
     system("cls");
     try{
-        int cantJ;
+        int cantJ = 0;
         dtJugador ** jugadores = s->obtenerJugadores(cantJ);  
+        if (cantJ == 0){
+            cout << endl <<"No hay jugadores registrados en el sistema." <<endl;
+            sleep(3);
+        }else{
         cout << "--------- Jugadores ---------" << endl;
         for (int i = 0; i < cantJ; i++)
         {
-            cout << "  Jugador " << i + 1 << ": " << jugadores[i]->getNickname() << " " << jugadores[i]->getEdad() << endl;
+            cout << "  Jugador " << i + 1 << ": "<<endl
+            << "    -Nickname: " << jugadores[i]->getNickname() << endl
+            << "    -Edad: " << jugadores[i]->getEdad() << endl;
         }
         cout << "-----------------------------" << endl;
-        sleep(5);
+        sleep(6);
+        }
     }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
         sleep(2);
