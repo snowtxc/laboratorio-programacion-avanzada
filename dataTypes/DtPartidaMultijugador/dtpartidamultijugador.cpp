@@ -5,12 +5,11 @@
 using namespace std;
 
 
-int MAX_JUGADORES_POR_PARTIDA = 100;
 
-DtPartidaMultijugador::DtPartidaMultijugador(bool enVivo,DtFechaHora * fechaHora, int duracion):DtPartida(fechaHora, duracion) {
-    this->nicknameJugadoresUnidos = new string[MAX_JUGADORES_POR_PARTIDA];
-    this->cantidadJugadoresUnidos = 0;
+DtPartidaMultijugador::DtPartidaMultijugador(bool enVivo,DtFechaHora * fechaHora, float duracion,string * jugadoresUnidos,int cantidadJugadoresUnidos):DtPartida(fechaHora, duracion) {
+    this->nicknameJugadoresUnidos = jugadoresUnidos;
     this->transmitidoEnVivo = enVivo;
+    this->cantidadJugadoresUnidos = cantidadJugadoresUnidos;
 };
 
 bool DtPartidaMultijugador::getTransmitidoEnVivo() {

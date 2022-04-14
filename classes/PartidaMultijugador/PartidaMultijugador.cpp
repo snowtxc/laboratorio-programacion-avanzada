@@ -3,6 +3,8 @@
 
 PartidaMultijugador::PartidaMultijugador(bool transmitidaEnVivo,DtFechaHora * fecha, float duracion):Partida(fecha,duracion){
     this->transimitidaEnVivo = transimitidaEnVivo;
+    this->jugadores = new Jugador *[this->max_jugadores];
+    this->cant_jugadores = 0;
 }
 
 float PartidaMultijugador::darTotalHorasParticipantes(){
@@ -18,6 +20,19 @@ void PartidaMultijugador::setTransmitidaEnVivo(bool transmitidaEnVivo){
 }
 
 DtPartida * PartidaMultijugador::darInfo(){
-    DtPartida * res = new DtPartidaMultijugador(this->transimitidaEnVivo, this->getFecha(), this->getDuracion());
+    string * jugadores_unidos = new string[this->max_jugadores];
+    for(int i = 0 ; i < this->cant_jugadores ; i++){
+        jugadores_unidos[i] = jugadores[i]->getNickname();
+    }
+    DtPartida * res = new DtPartidaMultijugador(this->transimitidaEnVivo,this->getFecha(),this->getDuracion(),jugadores_unidos,this->cant_jugadores);
     return res;
 }
+
+void PartidaMultijugador::agregarJugador(Jugador * jugador){
+    if(this->cant_jugadores >= this->max_jugadores){
+        throw invalid_argument("Lo siento la partida esta llena de jugadores");
+    }
+    this->jugadores[this->cant_jugadores] = jugador;
+    this->cant_jugadores ++;
+}
+

@@ -29,13 +29,28 @@ class Sistema {
         dtJugador ** obtenerJugadores(int&);
         void agregarVideoJuego(string, TipoJuego);
         int getCantVideoJuegos();
+        int getCantJugadores();
+        Videojuego ** getVideoJuegos();
+        Jugador ** getJugadores();
         void imprimirVideoJuegos();
         DtPartida** obtenerPartidas(string, int&);
         void iniciarPartida(string, string, Partida *);
 };
 
+Videojuego ** Sistema::getVideoJuegos(){
+  return this->videoJuegos;
+}
+
+Jugador ** Sistema::getJugadores(){
+  return this->jugadores;
+}
+
 int Sistema::getCantVideoJuegos() {
   return this->cantVideoJuegos;
+}
+
+int Sistema::getCantJugadores() {
+  return this->cantJugadores;
 }
 
 Sistema::Sistema() {
@@ -172,8 +187,10 @@ void Sistema::iniciarPartida(string nickname, string videojuego, Partida * parti
    }
   };
   if(juego == NULL || jugador == NULL){
-    throw invalid_argument("Error : Juego o jugador invalido al iniciar la partida");
+    throw invalid_argument("Error: Error : Juego o Jugador invalido al iniciar la partida");
+    sleep(3);
   }
+  
   partida->setJugador(jugador);
-  cout << "Sii";
+  juego->agregarPartida(partida);
 }
