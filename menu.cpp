@@ -362,7 +362,7 @@ void iniciarPartidaMenu(){
 
     int duracion;
     system("cls");
-    cout << "Por favor, ingrese la duracion de la partida: "<<endl;
+    cout << "Por favor, ingrese la duracion de la partida: (minutos)"<<endl;
     duracion = leerEntradaInt();
     
     indiviOmultij = menuIndividualOmultijugador(); // le preguntamos si quiere individual o multijugador
@@ -402,10 +402,13 @@ void obtenerPartidasMenu(){
     juego = leerEntradaString();
     try{
         int cantP;
-        DtPartida ** partidas = s->obtenerPartidas(juego, cantP);  
+        DtPartida ** partidas = s->obtenerPartidas(juego, cantP);
+        system("cls");
+        cout << "--------- Partidas ---------" << endl;
         for (int i = 0; i < cantP; i++)
         {
             cout << *partidas[i];
+            cout << endl << "----------------------------" << endl;
         }
         sleep(5);
     }catch(const std::exception& e){
