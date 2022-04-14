@@ -1,4 +1,6 @@
 #include<iostream>
+#include <cstdlib> //es para el clear
+#include <stdlib.h> // tambien para el clear pero fuera de windows
 //#include "../DtVideojuego/DtVideojuego.cpp"
 #include "../../Classes/Jugador/Jugador.cpp"
 #include "../../Classes/Videojuego/Videojuego.cpp"
@@ -188,7 +190,7 @@ void Sistema::iniciarPartida(string nickname, string videojuego, Partida * parti
   };
   if(juego == NULL || jugador == NULL){
     throw invalid_argument("Error: Error : Juego o Jugador invalido al iniciar la partida");
-    sleep(3);
+    //sleep(3);
   }
   
   partida->setJugador(jugador);
