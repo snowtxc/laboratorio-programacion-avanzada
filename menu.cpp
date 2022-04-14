@@ -21,7 +21,7 @@ void obtenerPartidasMenu();
 int leerEntradaInt();
 string leerEntradaString();
 TipoJuego menuTipoJuego();
-Jugador * buscarJugador(string);
+Jugador * buscarJugador(string, Jugador **, int);
 bool menuMostrarSeguirAgregandoJugador();
 
 void mostrarMenu(){
@@ -282,16 +282,32 @@ bool menuMostrarSeguirAgregandoJugador(){
 }
 
 
-Jugador ** obtenerJugadoresAIniciarPartida(int& cant){
+Jugador ** obtenerJugadoresAIniciarPartida(int& cant, string nickCreador){
+    Jugador ** jugadoresSistema = jugadoresSistema = s->getJugadores();
+    int cantJugadoresSistema = s->getCantJugadores();
+    Jugador * creador = buscarJugador(nickCreador, jugadoresSistema,cantJugadoresSistema);
+    if(creador == NULL) {
+        system("cls");
+        throw invalid_argument("Error: El creador para esta partida no existe");
+    }
     Jugador ** Jugadores = new Jugador * [MAX_JUGADORES];
+    Jugadores[0] = creador; 
+    cant ++;
     bool opcion = menuMostrarSeguirAgregandoJugador();
     while (opcion != false)
     {
         system("cls");
         cout << "Ingrese el nickname del jugador que desea agregar a esta partida: " << endl;
         string nick = leerEntradaString();
-        Jugador * jugador = buscarJugador(nick);
-        if(jugador == NULL) {
+        Jugador * jugador = buscarJugador(nick, jugadoresSistema, cantJugadoresSistema);
+
+        //Valido si jugador ya existe en la lista que estoy creando
+        Jugador * jugadorYaExistente = buscarJugador(nick, Jugadores, cant);
+        if(jugadorYaExistente != NULL){
+            cout << "Este jugador ya es parte de esta partida" << endl;
+            sleep(3);
+        }
+        else if(jugador == NULL) {
             cout << "El nickname que proporciono no pertenece a ningun jugador en el sistema" << endl;
             sleep(3);
         } else {
@@ -305,12 +321,11 @@ Jugador ** obtenerJugadoresAIniciarPartida(int& cant){
     return Jugadores;
 }
 
-Jugador * buscarJugador(string nickname) {
+Jugador * buscarJugador(string nickname, Jugador ** lista, int cant) {
    Jugador * jugador = NULL;
-   Jugador ** jugadoresSistema = s->getJugadores();
-   for(int i = 0; i < s->getCantJugadores(); i++){
-       if(jugadoresSistema[i]->getNickname() == nickname){
-           jugador = jugadoresSistema[i];
+   for(int i = 0; i < cant; i++){
+       if(lista[i]->getNickname() == nickname){
+           jugador = lista[i];
        }
    }
    return jugador;
@@ -373,7 +388,7 @@ void iniciarPartidaMenu(){
             bool enVivo;
             enVivo = menuMultijugadorTransmitidaOno(); // preguntamos si quiere transmitirla en vivo o no.
             int cant_jugadores = 0;
-            Jugador ** jugadoresEnEstaPartida = obtenerJugadoresAIniciarPartida(cant_jugadores);
+            Jugador ** jugadoresEnEstaPartida = obtenerJugadoresAIniciarPartida(cant_jugadores, nickCreador);
             nueva = new PartidaMultijugador(enVivo, ahora, duracion,jugadoresEnEstaPartida, cant_jugadores);
             s->iniciarPartida(nickCreador,videojuego, nueva);
         }
