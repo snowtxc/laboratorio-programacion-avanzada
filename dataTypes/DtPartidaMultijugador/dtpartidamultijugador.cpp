@@ -47,6 +47,6 @@ void DtPartidaMultijugador::printOn(std::ostream& o) const
         o << this->nicknameJugadoresUnidos[this->cantidadJugadoresUnidos-1];
     }
     else{
-        o << "No hay jugadores en esta partida" << endl;
+        o << "No hay jugadores en esta partida";
     }
 }

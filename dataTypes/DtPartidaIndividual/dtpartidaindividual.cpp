@@ -19,13 +19,13 @@ bool DtPartidaIndividual::getContinuaPartidaAnterior(){
 
 void DtPartidaIndividual::printOn(std::ostream& o) const
 {
-    o << "Tipo Partida:Individual" << endl; 
-    o << "Fecha:" << this->fecha->getDay() << "/" << this->fecha->getMonth() << "/" << this->fecha->getYear() << endl;
-    o << "Duracion:" << this->duracion << endl;
+    o << "Tipo Partida: Individual" << endl; 
+    o << "Fecha: " << this->fecha->getDay() << "/" << this->fecha->getMonth() << "/" << this->fecha->getYear() << endl;
+    o << "Duracion: " << this->duracion << endl;
     if (this->continuaPartidaAnterior == true) {
-      o << "Continuacion de una partida anterior:Si";
+      o << "Continuacion de una partida anterior: Si";
     }
     else {
-      o << "Continuacion de una partida anterior:No";  
+      o << "Continuacion de una partida anterior: No";  
     }
 }
