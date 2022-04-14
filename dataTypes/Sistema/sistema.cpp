@@ -1,4 +1,6 @@
 #include<iostream>
+#include <cstdlib> //es para el clear
+#include <stdlib.h> // tambien para el clear pero fuera de windows
 //#include "../DtVideojuego/DtVideojuego.cpp"
 #include "../../Classes/Jugador/Jugador.cpp"
 #include "../../Classes/Videojuego/Videojuego.cpp"
