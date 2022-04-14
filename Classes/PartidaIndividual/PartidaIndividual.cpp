@@ -15,7 +15,7 @@ void PartidaIndividual::setContinuarPartidaAnterior(bool continuarPartidaAnterio
 }
 /*Queda por implementar FUNCION Dar total Horas participantes */
 float PartidaIndividual::darTotalHorasParticipantes(){
-    return 1;
+    return this->getDuracion();
 }
 
 DtPartida * PartidaIndividual::darInfo(){

@@ -8,7 +8,7 @@ PartidaMultijugador::PartidaMultijugador(bool transmitidaEnVivo,DtFechaHora * fe
 }
 
 float PartidaMultijugador::darTotalHorasParticipantes(){
-    return 1;   ///Queda por implementar
+    return this->getDuracion() * this->cant_jugadores;   ///Queda por implementar
 }
 
 bool PartidaMultijugador::getTransimitidaEnVivo(){
