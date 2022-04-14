@@ -8,7 +8,7 @@ class PartidaMultijugador: public  Partida {
       bool transimitidaEnVivo;
       Jugador ** jugadores;
       int max_jugadores = 20;
-      unsigned cant_jugadores;
+      int cant_jugadores;
     public:
        PartidaMultijugador(bool,DtFechaHora * ,float);
        PartidaMultijugador(bool,DtFechaHora * ,float, Jugador **, int);

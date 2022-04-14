@@ -1,5 +1,24 @@
 #include <iostream>
-#include <unistd.h>
+#ifdef _WIN32
+
+  #include <windows.h>
+
+  inline void sleep( unsigned long ms )
+    {
+    Sleep( ms * 1000);
+    }
+
+#else  /* POSIX */
+
+  #include <unistd.h>
+
+  inline void sleep( unsigned long ms )
+    {
+    usleep( ms );
+    }
+
+#endif
+//#include <unistd.h>
 #include <cstdlib> //es para el clear
 #include <stdlib.h> // tambien para el clear pero fuera de windows
 #include <string>
@@ -100,6 +119,7 @@ TipoJuego menuTipoJuego(){
         default:system("cls"); cout<<"Valor invalido, vuelva a intentarlo."; sleep(2); system("cls"); break;
         }
     } while (opcionValida == false);
+    return Accion;
     //validar que no salga del while hasta que inserte una opcion valida.
 }
 
@@ -121,6 +141,7 @@ int menuIndividualOmultijugador(){
         default:system("cls"); cout<<"Valor invalido, vuelva a intentarlo."; sleep(2); break;
         }
     } while (opcionValida == false);
+    return -1111;
 }
 
 int menuIndividualNuevaoContinuar(){
@@ -141,6 +162,7 @@ int menuIndividualNuevaoContinuar(){
         default:system("cls"); cout<<"Valor invalido, vuelva a intentarlo."; sleep(2); break;
         }
     } while (opcionValida == false);
+    return -1111;
 }
 
 // si eligió modo multijugador, le preguntamos si va a ser transmitida en vivo o no.
@@ -162,6 +184,7 @@ bool menuMultijugadorTransmitidaOno(){
         default:system("cls"); cout<<"Valor invalido, vuelva a intentarlo."; sleep(2); break;
         }
     } while (opcionValida == false);
+    return false;
 }
 
 void agregarVideojuegoMenu(){
@@ -297,11 +320,12 @@ bool menuMostrarSeguirAgregandoJugador(){
         default:system("cls"); cout<<"Valor invalido, vuelva a intentarlo."; sleep(2); break;
         }
     } while (opcionValida == false);
+    return false;
 }
 
 
 Jugador ** obtenerJugadoresAIniciarPartida(int& cant, string nickCreador){
-    Jugador ** jugadoresSistema = jugadoresSistema = s->getJugadores();
+    Jugador ** jugadoresSistema = s->getJugadores();
     int cantJugadoresSistema = s->getCantJugadores();
     Jugador * creador = buscarJugador(nickCreador, jugadoresSistema,cantJugadoresSistema);
     if(creador == NULL) {
