@@ -21,6 +21,8 @@ void obtenerPartidasMenu();
 int leerEntradaInt();
 string leerEntradaString();
 TipoJuego menuTipoJuego();
+Jugador * buscarJugador(string);
+bool menuMostrarSeguirAgregandoJugador();
 
 void mostrarMenu(){
     system("cls");
@@ -246,6 +248,76 @@ void obtenerJugadoresMenu(){
     }
 }
 
+//le pregunto al jugador si quiere seguir agregando un jugador a la partida
+bool menuMostrarSeguirAgregandoJugador(){
+    bool opcionValida = false;
+    do{
+        system("cls");
+        cout << "Desea seguir agregando jugadores a esta partida ?"<<endl;
+        cout << "1 - Si." << endl;
+        cout << "2 - No." << endl;
+
+        int eleccion;
+        eleccion = leerEntradaInt();
+
+        switch (eleccion)
+        {
+        case 1: return true; opcionValida = true; break;
+        case 2: return false; opcionValida = true;break;
+        default:system("cls"); cout<<"Valor invalido, vuelva a intentarlo."; sleep(2); break;
+        }
+    } while (opcionValida == false);
+}
+
+
+Jugador ** obtenerJugadoresAIniciarPartida(){
+    Jugador ** Jugadores = new Jugador * [MAX_JUGADORES];
+    int cant = 0;
+    bool opcion = menuMostrarSeguirAgregandoJugador();
+    while (opcion != false)
+    {
+        system("cls");
+        cout << "Ingrese el nickname del jugador que desea agregar a esta partida: " << endl;
+        string nick = leerEntradaString();
+        Jugador * jugador = buscarJugador(nick);
+        if(jugador == NULL) {
+            cout << "El nickname que proporciono no pertenece a ningun jugador en el sistema" << endl;
+            sleep(3);
+        } else {
+            system("cls");
+            cout << "El jugador fue agregado a esta partida :)" << endl;
+            Jugadores[cant++] = jugador;
+            sleep(2);
+        }
+        opcion = menuMostrarSeguirAgregandoJugador();
+    }
+    return Jugadores;
+}
+
+Jugador * buscarJugador(string nickname) {
+   Jugador * jugador = NULL;
+   Jugador ** jugadoresSistema = s->getJugadores();
+   for(int i = 0; i < s->getCantJugadores(); i++){
+       if(jugadoresSistema[i]->getNickname() == nickname){
+           jugador = jugadoresSistema[i];
+       }
+   }
+   return jugador;
+}
+
+
+Videojuego * buscarVideoJuego(string titulo) {
+   Videojuego * juego = NULL;
+   Videojuego ** juegosSistema = s->getVideoJuegos();
+   for(int i = 0; i < s->getCantJugadores(); i++){
+       if(juegosSistema[i]->getTitulo() == titulo){
+           juego = juegosSistema[i];
+       }
+   }
+   return juego;
+}
+
+
 void iniciarPartidaMenu(){
     time_t t = time(0);
     tm* now = localtime(&t);
@@ -260,63 +332,45 @@ void iniciarPartidaMenu(){
     int minuto = now->tm_min;
     DtFechaHora * ahora = new DtFechaHora(dia, mes, anio, hora, minuto);
 
-    system("cls");
-    indiviOmultij = menuIndividualOmultijugador(); // le preguntamos si quiere individual o multijugador
-    if (indiviOmultij == 1){ // eligió modo individual
-        int individual;
-        system("cls");
-        individual = menuIndividualNuevaoContinuar(); // le preguntamos si quiere una nueva partida o continuar una ya registrada
-        if (individual == 1){ //eligió crear PARTIDA NUEVA, le pedimos la duracion y creamos una instancia
-            int duracion;
-            system("cls");
-            cout << "Por favor, ingrese la duracion de la partida: "<<endl;
-            duracion = leerEntradaInt();
-            DtPartidaIndividual nueva(false, ahora, duracion);
-            // s->FUNCION DE MAXI con el valor "nueva"
-        }else{ // eligió continuar PARTIDA ANTERIOR
-            int duracion;
-            system("cls");
-            cout << "Por favor, ingrese la duracion de la partida: "<<endl;
-            duracion = leerEntradaInt();
-            DtPartidaIndividual nueva(true, ahora, duracion);
-            // s->FUNCION DE MAXI con el valor "nueva"
-        }
-    }else{ // si eligió modo multijugador
-        // 1. pedir cantidad de jugadores maximo es (MAX_JUGADORES)
-        system("cls");
-        cout << "Ingrese Videojuego en el que desea iniciar la partida: "<< endl;
-        videojuego = leerEntradaString();
 
-        int duracion;
-        system("cls");
-        cout << "Por favor, ingrese la duracion de la partida: "<<endl;
-        duracion = leerEntradaInt();
-
-        bool enVivo;
-        enVivo = menuMultijugadorTransmitidaOno(); // preguntamos si quiere transmitirla en vivo o no.
-        DtPartidaMultijugador nueva(enVivo, ahora, duracion);
-        // s->iniciarPartida()
-    }
-
-/*
     system("cls");
     cout << "Ingrese Videojuego en el que desea iniciar la partida: "<< endl;
     videojuego = leerEntradaString();
-*/
 
-/*
+    system("cls");
+    cout << "Ingrese el jugador que iniciara la partida: "<< endl;
+    nickCreador = leerEntradaString();
+
+    int duracion;
+    system("cls");
+    cout << "Por favor, ingrese la duracion de la partida: "<<endl;
+    duracion = leerEntradaInt();
+    
+    indiviOmultij = menuIndividualOmultijugador(); // le preguntamos si quiere individual o multijugador
+    Partida * nueva;
+    
     try{
-        //s->iniciarPartida(nickCreador, videojuego, ahora);
-        cout << "PARTIDA INICIADA CON EXITO"<< endl;
-        sleep(2);
+        if (indiviOmultij == 1){ // eligió modo individual
+        bool continuar;
+        system("cls");
+        continuar = menuIndividualNuevaoContinuar() == 1 ? true : false;
+        nueva = new PartidaIndividual(continuar, ahora, duracion);
+        s->iniciarPartida(nickCreador,videojuego, nueva);
+
+        }else{ // si eligió modo multijugador
+            bool enVivo;
+            enVivo = menuMultijugadorTransmitidaOno(); // preguntamos si quiere transmitirla en vivo o no.
+            Jugador ** jugadoresEnEstaPartida = obtenerJugadoresAIniciarPartida();
+            nueva = new PartidaMultijugador(enVivo, ahora, duracion);
+            s->iniciarPartida(nickCreador,videojuego, nueva);
+        }
+        system("cls");
+        cout << "Iniciando partida ... !"<< endl;
+        sleep(5);
     }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
         sleep(2);
     }
-
-    cout << "Partida iniciada, disfruta!"<< endl;
-    sleep(2);
-*/
 }
 
 void obtenerPartidasMenu(){
