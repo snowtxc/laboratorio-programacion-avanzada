@@ -193,5 +193,4 @@ void Sistema::iniciarPartida(string nickname, string videojuego, Partida * parti
   
   partida->setJugador(jugador);
   juego->agregarPartida(partida);
-
 }

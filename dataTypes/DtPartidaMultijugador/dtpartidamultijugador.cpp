@@ -24,5 +24,13 @@ int DtPartidaMultijugador::getCantidadJugadoresUnidos() {
 
 void DtPartidaMultijugador::printOn(std::ostream& o) const
 {
-  o << "DtPartidaMultijugador";
+    o << "Tipo Partida:Multijugador" << endl; 
+    o << "Fecha:" << this->fecha->getDay() << "/" << this->fecha->getMonth() << "/" << this->fecha->getYear() << endl;
+    o << "Duracion" << this->duracion << endl;
+    if (this->transmitidoEnVivo == true) {
+      o << "Transmitida en vivo:Si";
+    }
+    else {
+      o << "Transmitida en vivo:No"; 
+    }
 }

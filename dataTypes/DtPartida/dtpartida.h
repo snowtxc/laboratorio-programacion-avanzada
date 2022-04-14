@@ -5,10 +5,7 @@
 #include<iostream>
 #include "../DtFechaHora/DtFechaHora.h"
 
-class DtPartida {
-    private:
-      DtFechaHora * fecha;
-      float duracion;
+class DtPartida {  
     public:
       DtPartida();
       DtPartida(DtFechaHora *,float);
@@ -21,6 +18,8 @@ class DtPartida {
       }
     protected:
       virtual void printOn(std::ostream& o) const = 0;
+      float duracion;
+      DtFechaHora * fecha;
 };
 
 #endif
