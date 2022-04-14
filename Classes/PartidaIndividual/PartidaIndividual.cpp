@@ -2,7 +2,7 @@
 #include "../../dataTypes/DtPartidaIndividual/dtpartidaindividual.cpp"
 
 
-PartidaIndividual::PartidaIndividual(bool continuarPartidaAnterior,DtFechaHora * fecha, float duracion, Jugador * creadorPartida):Partida(fecha,duracion, creadorPartida){
+PartidaIndividual::PartidaIndividual(bool continuarPartidaAnterior,DtFechaHora * fecha, float duracion):Partida(fecha,duracion){
     this->continuarPartidaAnterior = continuarPartidaAnterior;
 }
 

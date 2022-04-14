@@ -29,12 +29,28 @@ class Sistema {
         dtJugador ** obtenerJugadores(int&);
         void agregarVideoJuego(string, TipoJuego);
         int getCantVideoJuegos();
+        int getCantJugadores();
+        Videojuego ** getVideoJuegos();
+        Jugador ** getJugadores();
         void imprimirVideoJuegos();
         DtPartida** obtenerPartidas(string, int&);
+        void iniciarPartida(string, string, Partida *);
 };
+
+Videojuego ** Sistema::getVideoJuegos(){
+  return this->videoJuegos;
+}
+
+Jugador ** Sistema::getJugadores(){
+  return this->jugadores;
+}
 
 int Sistema::getCantVideoJuegos() {
   return this->cantVideoJuegos;
+}
+
+int Sistema::getCantJugadores() {
+  return this->cantJugadores;
 }
 
 Sistema::Sistema() {
@@ -154,4 +170,28 @@ DtPartida** Sistema::obtenerPartidas(string videojuego, int& cantPartidas){
     res[x] = partidasDeJuego[x]->darInfo();
   }
   return res;
+}
+
+
+void Sistema::iniciarPartida(string nickname, string videojuego, Partida * partida) {
+  Jugador * jugador = NULL;
+  Videojuego * juego = NULL;
+  for(int i = 0; i < this->cantJugadores; i++){
+    if(this->jugadores[i]->getNickname() == nickname){
+      jugador = jugadores[i];
+    }
+  };
+  for(int i = 0; i < this->cantVideoJuegos; i++){
+   if(this->videoJuegos[i]->getTitulo() == videojuego){
+     juego = videoJuegos[i];
+   }
+  };
+  if(juego == NULL || jugador == NULL){
+    throw invalid_argument("Error: Error : Juego o Jugador invalido al iniciar la partida");
+    sleep(3);
+  }
+  
+  partida->setJugador(jugador);
+  juego->agregarPartida(partida);
+
 }

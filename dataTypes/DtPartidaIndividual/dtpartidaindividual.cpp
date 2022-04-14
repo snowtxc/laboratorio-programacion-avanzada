@@ -12,3 +12,8 @@ bool DtPartidaIndividual::getContinuaPartidaAnterior(){
     return this->continuaPartidaAnterior;
 }
 
+
+void DtPartidaIndividual::printOn(std::ostream& o) const
+{
+  o << "DtPartidaIndividual";
+}

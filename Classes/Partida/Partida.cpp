@@ -4,11 +4,15 @@
 
 using namespace std;
 
-Partida::Partida(DtFechaHora * fechaHora,float duracion, Jugador * creadorPartida){
+Partida::Partida(DtFechaHora * fechaHora,float duracion){
     this->fecha = fechaHora;
     this->duracion = duracion;
+}
+
+void Partida::setJugador(Jugador * creadorPartida) {
     this->creadorPartida = creadorPartida;
 }
+
 
 DtFechaHora * Partida::getFecha() {
     return this->fecha;

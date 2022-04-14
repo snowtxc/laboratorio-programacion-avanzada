@@ -10,7 +10,7 @@ class PartidaMultijugador: public  Partida {
       int max_jugadores = 20;
       unsigned cant_jugadores;
     public:
-       PartidaMultijugador(bool,DtFechaHora * ,float, Jugador *);
+       PartidaMultijugador(bool,DtFechaHora * ,float);
        bool getTransimitidaEnVivo();
        void setTransmitidaEnVivo(bool);
        float darTotalHorasParticipantes();

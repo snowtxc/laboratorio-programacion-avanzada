@@ -22,3 +22,7 @@ int DtPartidaMultijugador::getCantidadJugadoresUnidos() {
     return this->cantidadJugadoresUnidos;
 };
 
+void DtPartidaMultijugador::printOn(std::ostream& o) const
+{
+  o << "DtPartidaMultijugador";
+}

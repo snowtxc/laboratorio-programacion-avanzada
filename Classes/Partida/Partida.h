@@ -12,8 +12,9 @@ class Partida {
       Jugador * creadorPartida = NULL;
     public:
       Partida();
-      Partida(DtFechaHora *,float, Jugador *);
+      Partida(DtFechaHora *,float);
       DtFechaHora * getFecha();
+      void setJugador(Jugador *);
       float getDuracion();
       void setFecha(DtFechaHora *);
       void setDuracion(float);
