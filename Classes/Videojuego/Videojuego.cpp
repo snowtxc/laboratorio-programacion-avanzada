@@ -31,7 +31,11 @@ void Videojuego::setGenero(TipoJuego g){
 }
 
 DtVideojuego * Videojuego::darInfo(){
-    DtVideojuego * P1 = new DtVideojuego(this->titulo, this->genero, 0.0);
+    float totalHoras = 0;
+    for(int i = 0; i < this->cantPartidas ; i ++){
+       totalHoras = totalHoras + this->partidas[i]->darTotalHorasParticipantes();
+    }
+    DtVideojuego * P1 = new DtVideojuego(this->titulo, this->genero,totalHoras);
     return P1;
 }   
 

@@ -189,8 +189,12 @@ void Sistema::iniciarPartida(string nickname, string videojuego, Partida * datos
    }
   };
 
-  if(juego == NULL || jugador == NULL){
-    throw invalid_argument("ERROR: Juego o Jugador invalido al iniciar la partida");
+  if(juego == NULL ){
+    throw invalid_argument("Error : El juego especificado es invalido");
+  }
+
+  if(jugador == NULL){
+    throw invalid_argument("Error: El jugador especificado es invalido");
   }
   
   datos->setJugador(jugador);
