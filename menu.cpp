@@ -204,6 +204,7 @@ void obtenerVideojuegosMenu(){
 
             cout << "Nombre Juego: " << videojuegos[i]->getTitulo() << endl; 
             cout << "Genero Juego: " << fromtatedGenero << endl; // Usar switch
+            cout << "Total Horas:" << videojuegos[i]->getTotalHorasDeJuego() << endl;
         }
         sleep(5);
     }catch(const std::exception& e){

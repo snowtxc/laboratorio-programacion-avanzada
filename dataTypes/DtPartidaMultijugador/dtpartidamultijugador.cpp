@@ -33,7 +33,7 @@ void DtPartidaMultijugador::printOn(std::ostream& o) const
     o << "Fecha: " << this->fecha->getDay() << "/" << this->fecha->getMonth() << "/" << this->fecha->getYear() << endl;
     o << "Duracion: " << this->duracion * this->cantidadJugadoresUnidos << endl;
     if (this->transmitidoEnVivo == true) {
-      o << "Transmitida en vivo: Si";
+      o << "Transmitida en vivo: Si" << endl;
     }
     else {
       o << "Transmitida en vivo: No" << endl; 
